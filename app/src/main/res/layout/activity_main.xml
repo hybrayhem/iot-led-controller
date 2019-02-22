@@ -9,47 +9,68 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="164dp">
 
-        <ImageView
-            android:id="@+id/colorWheel"
+        <RelativeLayout
             android:layout_width="350dp"
             android:layout_height="350dp"
-            android:layout_margin="20dp"
-            app:srcCompat="@drawable/color_wheel_730" />
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/colorWheel"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                app:srcCompat="@drawable/color_wheel_730" />
+
+            <ImageView
+                android:id="@+id/picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:srcCompat="@android:drawable/ic_menu_mylocation" />
+        </RelativeLayout>
+
         <View
             android:id="@+id/colorView"
             android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+            android:layout_height="100dp" />
 
         <TextView
             android:id="@+id/txtResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:text="HEX: \nRGB: "
-            android:textSize="20sp"
-            android:layout_margin="10dp"/>
+            android:textSize="20sp" />
 
     </LinearLayout>
 
-    <!--<com.skydoves.colorpickerpreference.ColorPickerView
-        android:id="@+id/colorPickerView"
-        android:layout_width="match_parent"
-        android:layout_height="499dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:palette="@drawable/palette"
-        app:selector="@drawable/wheel" />-->
+        <!--<com.skydoves.colorpickerpreference.ColorPickerView
+            android:id="@+id/colorPickerView"
+            android:layout_width="match_parent"
+            android:layout_height="499dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:palette="@drawable/palette"
+            app:selector="@drawable/wheel" />-->
 
 
 </android.support.constraint.ConstraintLayout>
