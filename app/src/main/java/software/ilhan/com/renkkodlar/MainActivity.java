@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     ImageView colorWheel;
+    ImageView picker;
     TextView txtResult;
     View colorView;
 
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         colorWheel = findViewById(R.id.colorWheel);
+        picker = findViewById(R.id.picker);
         colorView = findViewById(R.id.colorView);
         txtResult = findViewById(R.id.txtResult);
 
@@ -50,8 +53,20 @@ public class MainActivity extends AppCompatActivity {
 
                     String hex = "#" + Integer.toHexString(pixel);
 
+                    /*colorWheel.TranslateAnimation(float fromXDelta, float toXDelta,
+                    float fromYDelta, float toYDelta)*/
+                    int currentX = 0;
+                    int currentY = 0;
+                    int newX = (int)event.getX();
+                    int newY = (int)event.getY();
+                    TranslateAnimation animation = new TranslateAnimation(currentX, newX, currentY, newY);
+                    animation.setFillAfter(true);
+                    animation.setDuration(10);
+                    picker.startAnimation(animation);
+                    currentX = newX;
+                    currentY = newY;
 
-
+                    
                     colorView.setBackgroundColor(Color.rgb(r,g,b));
 
                     txtResult.setText("HEX: "+hex+"\nRGB: "+r+", "+g+", "+b);
