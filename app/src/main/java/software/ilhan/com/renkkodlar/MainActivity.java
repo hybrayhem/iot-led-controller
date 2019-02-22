@@ -1,15 +1,16 @@
 package software.ilhan.com.renkkodlar;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 //github description:
@@ -38,45 +39,71 @@ public class MainActivity extends AppCompatActivity {
         colorWheel.setDrawingCacheEnabled(true);
         colorWheel.buildDrawingCache(true);
 
+        final float[] currentX = {466};
+        final float[] currentY = {466};
+
+        TranslateAnimation animation = new TranslateAnimation(currentX[0], 0, currentY[0], 0);
+        animation.setFillAfter(true);
+        animation.setDuration(3000);
+        picker.startAnimation(animation);
+
         //colorWheel on touch listener
         colorWheel.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch(View v, MotionEvent event){
                 if(event.getAction() == MotionEvent.ACTION_DOWN || event.getAction() == MotionEvent.ACTION_MOVE) {
                     bitmap = colorWheel.getDrawingCache();
+                    if((int)event.getX()>=0 && (int) event.getX()< bitmap.getWidth() && (int) event.getY()< bitmap.getHeight() && (int)event.getY()>=0) {
+                        int pixel = bitmap.getPixel((int) event.getX(), (int) event.getY());
 
-                    int pixel = bitmap.getPixel((int)event.getX(), (int)event.getY());
+                        int r = Color.red(pixel);
+                        int g = Color.green(pixel);
+                        int b = Color.blue(pixel);
 
-                    int r = Color.red(pixel);
-                    int g = Color.green(pixel);
-                    int b = Color.blue(pixel);
-
-                    String hex = "#" + Integer.toHexString(pixel);
+                        String hex = "#" + Integer.toHexString(pixel);
 
                     /*colorWheel.TranslateAnimation(float fromXDelta, float toXDelta,
                     float fromYDelta, float toYDelta)*/
-                    int currentX = 0;
-                    int currentY = 0;
-                    int newX = (int)event.getX();
-                    int newY = (int)event.getY();
-                    TranslateAnimation animation = new TranslateAnimation(currentX, newX, currentY, newY);
-                    animation.setFillAfter(true);
-                    animation.setDuration(10);
-                    picker.startAnimation(animation);
-                    currentX = newX;
-                    currentY = newY;
+//                        float centreX = colorWheel.getX() + colorView.getWidth() / 2;
+//                        float centreY = colorWheel.getY() + colorView.getHeight() / 2;
 
-                    
-                    colorView.setBackgroundColor(Color.rgb(r,g,b));
+                        float centreX = 540;
+                        float centreY = 540;
+                        Log.d("base_feedback", "CenterX: " + centreX + ", CenterY: " + centreY);
+                        float newX = (int) event.getX();
+                        float newY = (int) event.getY();
+                        TranslateAnimation animation = new TranslateAnimation(currentX[0]-466, newX-466, currentY[0]-466, newY-466);
+                        animation.setFillAfter(true);
+                        animation.setDuration(10);
+                        picker.startAnimation(animation);
+                        currentX[0] = newX;
+                        currentY[0] = newY;
+                        Log.d("position_feedback", "X: " + newX + ", Y: " + newY);
 
-                    txtResult.setText("HEX: "+hex+"\nRGB: "+r+", "+g+", "+b);
+                        colorView.setBackgroundColor(Color.rgb(r, g, b));
 
+                        txtResult.setText("HEX: " + hex + "\nRGB: " + r + ", " + g + ", " + b);
+                    }
                 }
                 return true;
             }
 
         });
 
+        txtResult.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                final android.content.ClipboardManager clipboardManager = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
+                String srcText;
+                ClipData clipData = ClipData.newPlainText("COLOR", txtResult.getText().toString());
+                clipboardManager.setPrimaryClip(clipData);
+                Toast.makeText(getApplicationContext(),"Renk değerleri panoya kopyalandı.", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
     }
 }
+
+/*centreX=imageView.getX() + imageView.getWidth()  / 2;
+ centreY=imageView.getY() + imageView.getHeight() / 2;*/
 

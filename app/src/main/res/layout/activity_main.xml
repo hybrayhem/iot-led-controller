@@ -42,7 +42,8 @@
         <View
             android:id="@+id/colorView"
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:layout_margin="10dp" />
 
         <TextView
             android:id="@+id/txtResult"
@@ -52,6 +53,13 @@
             android:gravity="center"
             android:text="HEX: \nRGB: "
             android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color Picker by Halil İbrahim İLHAN"
+            android:gravity="center"/>
 
     </LinearLayout>
 
