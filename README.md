@@ -7,3 +7,5 @@ some specs:
 
 -copies to clipboard the color values on long click to text of color values 
 
+-send color values to Esp32 IOT card with Tcp over wifi
+
