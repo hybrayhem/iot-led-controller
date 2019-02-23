@@ -67,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
 //                        float centreX = colorWheel.getX() + colorView.getWidth() / 2;
 //                        float centreY = colorWheel.getY() + colorView.getHeight() / 2;
 
-                        float centreX = 540;
-                        float centreY = 540;
+                        float centreX = 480;
+                        float centreY = 480;
                         Log.d("base_feedback", "CenterX: " + centreX + ", CenterY: " + centreY);
                         float newX = (int) event.getX();
                         float newY = (int) event.getY();
-                        TranslateAnimation animation = new TranslateAnimation(currentX[0]-466, newX-466, currentY[0]-466, newY-466);
+                        TranslateAnimation animation = new TranslateAnimation(currentX[0]-centreX, newX-centreX, currentY[0]-centreY, newY-centreY);
                         animation.setFillAfter(true);
                         animation.setDuration(10);
                         picker.startAnimation(animation);
