@@ -14,6 +14,17 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="164dp">
 
+        <EditText
+            android:id="@+id/txtAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="192.168.x.x:21567"
+            android:inputType="text"
+            android:text="192.168.1.1:21567"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="0dp" />
+
         <RelativeLayout
             android:layout_width="350dp"
             android:layout_height="350dp"
@@ -42,7 +53,7 @@
         <View
             android:id="@+id/colorView"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:layout_margin="10dp" />
 
         <TextView
@@ -63,22 +74,22 @@
 
     </LinearLayout>
 
-        <!--<com.skydoves.colorpickerpreference.ColorPickerView
-            android:id="@+id/colorPickerView"
-            android:layout_width="match_parent"
-            android:layout_height="499dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:palette="@drawable/palette"
-            app:selector="@drawable/wheel" />-->
+    <!--<com.skydoves.colorpickerpreference.ColorPickerView
+        android:id="@+id/colorPickerView"
+        android:layout_width="match_parent"
+        android:layout_height="499dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:palette="@drawable/palette"
+        app:selector="@drawable/wheel" />-->
 
 
 </android.support.constraint.ConstraintLayout>
