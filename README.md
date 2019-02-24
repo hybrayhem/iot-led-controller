@@ -1,5 +1,5 @@
 # RenkKodlari
--picks a color from color wheel and converts it to hex and rgb values
+-picks a color from color wheel and converts it to hex and rgb values then sends to Esp32 board via wifi for controlling rgb led.
 
 some specs:
 
