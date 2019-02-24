@@ -69,7 +69,7 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Color Picker by Halil İbrahim İLHAN"
+            android:text= "Renk Kodları by Halil İbrahim İLHAN"
             android:gravity="center"/>
 
     </LinearLayout>
