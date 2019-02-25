@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         final float[] currentX = {466};
         final float[] currentY = {466};
 
+        final String[] old_hex = {"test"};
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
         /*final String[] ip_address = {""};
 
@@ -126,16 +128,16 @@ public class MainActivity extends AppCompatActivity {
                         colorView.setBackgroundColor(Color.rgb(r, g, b));
 
                         txtResult.setText("HEX: " + hex + "\nRGB: " + r + ", " + g + ", " + b);
-                        String old_hex = "";
-                        //TODO "is hex changed" not working, needs to be right coding
-                        if (!hex.equals(old_hex)) {
+//                        String old_hex = "";
+
+                        if (!hex.equals(old_hex[0])) {
                             Log.d("hex_change_test", "old_hex: " + old_hex + ", new_hex: " + hex);
                             getIPandPort();
                             CMD = hex + ".";
                             Socket_AsyncTask rgb = new Socket_AsyncTask();
                             rgb.execute();
                             Log.d("cmd", "HEX String: " + CMD);
-                            old_hex = hex;
+                            old_hex[0] = hex;
                         }
                     }
                 }
@@ -192,90 +194,3 @@ public class MainActivity extends AppCompatActivity {
 
 /*centreX=imageView.getX() + imageView.getWidth()  / 2;
  centreY=imageView.getY() + imageView.getHeight() / 2;*/
-
-//TODO
-/**
- package com.example.jackyle.wifi_rasp;
-
- import android.os.AsyncTask;
- import android.support.v7.app.AppCompatActivity;
- import android.os.Bundle;
- import android.view.View;
- import android.widget.Button;
- import android.widget.EditText;
- import android.util.Log;
-
- import java.io.DataOutputStream;
- import java.io.IOException;
- import java.net.InetAddress;
- import java.net.Socket;
- import java.net.UnknownHostException;
-
- public class MainActivity extends AppCompatActivity {
- //UI Element
- Button btnUp;
- Button btnDown;
- EditText txtAddress;
- Socket myAppSocket = null;
- public static String wifiModuleIp = "";
- public static int wifiModulePort = 0;
- public static String CMD = "0";
- @Override
- protected void onCreate(Bundle savedInstanceState) {
- super.onCreate(savedInstanceState);
- setContentView(R.layout.activity_main);
-
- btnUp = (Button) findViewById(R.id.btnUp);
- btnDown = (Button) findViewById(R.id.btnDown);
-
- txtAddress = (EditText) findViewById(R.id.ipAddress);
-
- btnUp.setOnClickListener(new View.OnClickListener() {
- @Override
- public void onClick(View v) {
- getIPandPort();
- CMD = "Up";
- Socket_AsyncTask cmd_increase_servo = new Socket_AsyncTask();
- cmd_increase_servo.execute();
- }
- });
- btnDown.setOnClickListener(new View.OnClickListener() {
- @Override
- public void onClick(View v) {
- getIPandPort();
- CMD = "Down";
- Socket_AsyncTask cmd_increase_servo = new Socket_AsyncTask();
- cmd_increase_servo.execute();
- }
- });
-
- }
- public void getIPandPort()
- {
- String iPandPort = txtAddress.getText().toString();
- Log.d("MYTEST","IP String: "+ iPandPort);
- String temp[]= iPandPort.split(":");
- wifiModuleIp = temp[0];
- wifiModulePort = Integer.valueOf(temp[1]);
- Log.d("MY TEST","IP:" +wifiModuleIp);
- Log.d("MY TEST","PORT:"+wifiModulePort);
- }
- public class Socket_AsyncTask extends AsyncTask<Void,Void,Void>
- {
- Socket socket;
-
- @Override
- protected Void doInBackground(Void... params){
- try{
- InetAddress inetAddress = InetAddress.getByName(MainActivity.wifiModuleIp);
- socket = new java.net.Socket(inetAddress,MainActivity.wifiModulePort);
- DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
- dataOutputStream.writeBytes(CMD);
- dataOutputStream.close();
- socket.close();
- }catch (UnknownHostException e){e.printStackTrace();}catch (IOException e){e.printStackTrace();}
- return null;
- }
- }
- }
-*/
