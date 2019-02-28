@@ -105,8 +105,12 @@ public class MainActivity extends AppCompatActivity {
                         int g = Color.green(pixel);
                         int b = Color.blue(pixel);
 
-                        String hex = "#" + Integer.toHexString(pixel);
-
+                        String hex = "#" + Integer.toHexString(pixel)
+                        String str_R = Integer.toString(r);
+                        String str_G = Integer.toString(g);
+                        String str_B = Integer.toString(b);
+                        String RGB = str_R + str_G + str_B;
+                        
                     /*colorWheel.TranslateAnimation(float fromXDelta, float toXDelta,
                     float fromYDelta, float toYDelta)*/
 //                        float centreX = colorWheel.getX() + colorView.getWidth() / 2;
@@ -133,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                         if (!hex.equals(old_hex[0])) {
                             Log.d("hex_change_test", "old_hex: " + old_hex + ", new_hex: " + hex);
                             getIPandPort();
-                            CMD = hex + ".";
+                            CMD = RGB + ".";
                             Socket_AsyncTask rgb = new Socket_AsyncTask();
                             rgb.execute();
                             Log.d("cmd", "HEX String: " + CMD);
