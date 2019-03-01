@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                         int g = Color.green(pixel);
                         int b = Color.blue(pixel);
 
-                        String hex = "#" + Integer.toHexString(pixel)
+                        String hex = "#" + Integer.toHexString(pixel);
                         String str_R = Integer.toString(r);
                         String str_G = Integer.toString(g);
                         String str_B = Integer.toString(b);
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
                         txtResult.setText("HEX: " + hex + "\nRGB: " + r + ", " + g + ", " + b);
 //                        String old_hex = "";
-"
+
                         if (!hex.equals(old_hex[0])) {
                             Log.d("hex_change_test", "old_hex: " + old_hex + ", new_hex: " + hex);
                             getIPandPort();
