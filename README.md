@@ -9,3 +9,8 @@ some specs:
 
 -send color values to Esp32 IOT card with Tcp over wifi
 
+# Screen Views
+
+![image](https://https://github.com/hybrayhem38/iot-rgb-Led-Controller/blob/master/screenviews/blue.jpg)
+
+![image](https://https://github.com/hybrayhem38/iot-rgb-Led-Controller/blob/master/screenviews/red.jpg)
