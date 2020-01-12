@@ -11,6 +11,6 @@ some specs:
 
 # Screen Views
 
-![image](https://https://github.com/hybrayhem38/iot-rgb-Led-Controller/blob/master/screenviews/blue.jpg)
+<img src="screenviews/blue.jpg" width="360">
 
-![image](https://https://github.com/hybrayhem38/iot-rgb-Led-Controller/blob/master/screenviews/red.jpg)
+<img src="screenviews/red.jpg" width="360">
