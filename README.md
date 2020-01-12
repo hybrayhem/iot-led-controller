@@ -11,6 +11,4 @@ some specs:
 
 # Screen Views
 
-<img src="screenviews/blue.jpg" width="360">
-
-<img src="screenviews/red.jpg" width="360">
+<img src="screenviews/blue.jpg" width="360">  <img src="screenviews/red.jpg" width="360">
